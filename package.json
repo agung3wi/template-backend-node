@@ -1,0 +1,55 @@
+{
+  "name": "realworld-dynamodb-lambda",
+  "version": "1.0.0",
+  "description": "A serverless backend implementation for RealWorld using AWS DynamoDB + Lambda",
+  "keywords": [
+    "realworld",
+    "aws",
+    "lambda",
+    "dynamodb",
+    "serverless"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint src/ test/",
+    "test": "npm run lint && ./test-api-local.sh",
+    "start": "./start-server.sh",
+    "stop": "./stop-server.sh",
+    "deploy": "serverless deploy",
+    "test:deployed": "API_URL=`serverless info --verbose | grep '^ServiceEndpoint:' | grep -o 'https://.*'`; API_URL=$API_URL/api mocha",
+    "build:docs": "jsdoc -d gh-pages/jsdoc src/ .jsdoc.summary.md",
+    "postinstall": "serverless dynamodb install 2>&1 | awk 'NF'"
+  },
+  "devDependencies": {
+    "aws-sdk": "2.280.1",
+    "axios": "^0.18.0",
+    "eslint": "^5.2.0",
+    "mocha": "^5.0.4",
+    "node-jre": "^0.2.3",
+    "nyc": "^12.0.2",
+    "serverless": "^1.26.1",
+    "serverless-dynamodb-local": "0.2.35",
+    "serverless-offline": "^3.25.6",
+    "showdown": "^1.8.6"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.1.0",
+    "knex": "^0.19.2",
+    "microtime": "^3.0.0",
+    "node-input-validator": "^3.6.4",
+    "pg": "^7.12.1",
+    "sha1": "^1.1.1",
+    "slugify": "^1.2.6",
+    "uuid": "^3.2.1"
+  },
+  "optionalDependencies": {
+    "coveralls": "^3.0.0",
+    "jsdoc": "^3.5.5"
+  },
+  "greenkeeper": {
+    "ignore": [
+      "aws-sdk"
+    ]
+  }
+}
