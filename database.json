@@ -1,0 +1,36 @@
+{
+    "defaultEnv": "prod",
+    "dev": {
+        "driver": "sqlite3",
+        "filename": "~/dev.db"
+    },
+
+    "test": {
+        "driver": "sqlite3",
+        "filename": ":memory:"
+    },
+
+    "prod": {
+        "driver": "pg",
+        "user": "postgres",
+        "password": "123456",
+        "database": "tulen"
+    },
+
+    "pg": {
+        "driver": "pg",
+        "user": "test",
+        "password": "test",
+        "host": "localhost",
+        "database": "mydb",
+        "schema": "my_schema"
+    },
+
+    "mongo": {
+        "driver": "mongodb",
+        "database": "my_db",
+        "host": "localhost"
+    },
+
+    "other": "postgres://uname:pw@server.com/dbname"
+}

@@ -20,7 +20,7 @@ export DB_DRIVE=pg
 export DB_HOST=localhost
 export DB_USER=postgres
 export DB_DATABASE=tulen
-export DB_PASSWORD=bismillah
+export DB_PASSWORD=123456
 serverless dynamodb start --migrate &
 sleep 5
 nyc serverless offline --host=0.0.0.0 &
